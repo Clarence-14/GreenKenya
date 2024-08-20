@@ -131,7 +131,7 @@ fun LoginScreen(navController: NavController){
                 .padding(start = 20.dp, end = 20.dp),
             leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "", tint = Color.Green) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-            visualTransformation = PasswordVisualTransformation(),
+            visualTransformation = visualTransformation,
             trailingIcon = {
                 val icon = if (passwordVisible) {
                     //Download a password show icon
