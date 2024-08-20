@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -37,6 +38,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -47,6 +49,8 @@ import com.example.greenkenya.data.AuthViewModel
 import com.example.greenkenya.navigation.ROUT_LOGIN
 import com.example.greenkenya.navigation.ROUT_SIGNUP
 import com.example.greenkenya.ui.theme.Blue
+import com.example.greenkenya.ui.theme.DarkGreen
+import com.example.greenkenya.ui.theme.Green
 
 
 @Composable
@@ -55,13 +59,13 @@ fun SignupScreen(navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .paint(painterResource(id = R.drawable.blue), contentScale = ContentScale.FillBounds),
+            .paint(painterResource(id = R.drawable.black), contentScale = ContentScale.FillBounds),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(40.dp))
 
         Image(
-            painter = painterResource(id = R.drawable.propertyplus),
+            painter = painterResource(id = R.drawable.recycleicon),
             contentDescription ="home",
             modifier = Modifier
                 .size(150.dp),
@@ -71,24 +75,35 @@ fun SignupScreen(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "Property Plus",
+            text = "GreenKenya",
             fontSize = 60.sp,
             fontFamily = FontFamily.Cursive,
-            color = Color.Blue
+            color = DarkGreen
 
         )
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text ="Your better choice",
+            text ="Tudumishe Mazingira Safi",
             fontSize = 30.sp,
-            fontFamily = FontFamily.Serif
+            fontFamily = FontFamily.Serif,
+            color = Color.White
 
             )
         var name by remember { mutableStateOf("") }
         var email by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
         var confpassword by remember { mutableStateOf("") }
+        var passwordVisible by remember { mutableStateOf(false) }
+        // Function to determine visual transformation based on visibility
+        val visualTransformation: VisualTransformation =
+            if (passwordVisible) VisualTransformation.None
+            else PasswordVisualTransformation()
+        // Function to switch the password visibility
+        fun togglePasswordVisibility() {
+            passwordVisible = !passwordVisible
+        }
+
 
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -99,7 +114,7 @@ fun SignupScreen(navController: NavController){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
-            leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "Person", tint = Color.Blue)},
+            leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "Person", tint = Color.Green)},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
 
         )
@@ -112,7 +127,7 @@ fun SignupScreen(navController: NavController){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
-            leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "", tint = Color.Blue)},
+            leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "", tint = Color.Green)},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
 
         )
@@ -126,9 +141,23 @@ fun SignupScreen(navController: NavController){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
-            leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "", tint = Color.Blue)},
+            leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "", tint = Color.Green)},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-            visualTransformation = PasswordVisualTransformation(),
+            visualTransformation = visualTransformation,
+            trailingIcon = {
+                val icon = if (passwordVisible) {
+
+                    painterResource(id = R.drawable.passwordshow)
+                } else {
+
+                    painterResource(id = R.drawable.passwordhide)
+                }
+                IconButton(onClick = { togglePasswordVisibility() }) {
+                    Icon(painter = icon, contentDescription = null)
+                }
+            }
+
+
 
         )
 
@@ -140,10 +169,23 @@ fun SignupScreen(navController: NavController){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
-            leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "", tint = Color.Blue)},
+            leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "", tint = Color.Green)},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-            visualTransformation = PasswordVisualTransformation(),
-            )
+            visualTransformation = visualTransformation,
+            trailingIcon = {
+                val icon = if (passwordVisible) {
+
+                    painterResource(id = R.drawable.passwordshow)
+                } else {
+
+                    painterResource(id = R.drawable.passwordhide)
+                }
+                IconButton(onClick = { togglePasswordVisibility() }) {
+                    Icon(painter = icon, contentDescription = null)
+                }
+            }
+
+        )
 
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -156,7 +198,7 @@ fun SignupScreen(navController: NavController){
                 .fillMaxWidth()
                 .height(50.dp)
                 .padding(start = 20.dp, end = 20.dp),
-            colors = ButtonDefaults.buttonColors(Blue),
+            colors = ButtonDefaults.buttonColors(Green),
             shape = RoundedCornerShape(10.dp)
         ) {
 
@@ -173,7 +215,7 @@ fun SignupScreen(navController: NavController){
                 .fillMaxWidth()
                 .height(50.dp)
                 .padding(start = 20.dp, end = 20.dp),
-            colors = ButtonDefaults.buttonColors(Blue),
+            colors = ButtonDefaults.buttonColors(Green),
             shape = RoundedCornerShape(10.dp)
         ) {
 

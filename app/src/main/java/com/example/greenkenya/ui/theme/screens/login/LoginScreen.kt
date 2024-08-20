@@ -134,10 +134,10 @@ fun LoginScreen(navController: NavController){
             visualTransformation = visualTransformation,
             trailingIcon = {
                 val icon = if (passwordVisible) {
-                    //Download a password show icon
+
                     painterResource(id = R.drawable.passwordshow)
                 } else {
-                    //Download a password hide icon
+
                     painterResource(id = R.drawable.passwordhide)
                 }
                 IconButton(onClick = { togglePasswordVisibility() }) {
