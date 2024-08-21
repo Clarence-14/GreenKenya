@@ -33,6 +33,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenkenya.R
 import com.example.greenkenya.navigation.ROUT_HOME
+import com.example.greenkenya.navigation.ROUT_REGISTER
 import com.example.greenkenya.ui.theme.Green
 
 
@@ -161,21 +162,21 @@ fun DashboardScreen(navController: NavController){
                     Card(modifier = Modifier
                         .width(160.dp)
                         .height(180.dp)
-                        .clickable { navController.navigate(ROUT_HOME) },
+                        .clickable { navController.navigate(ROUT_REGISTER) },
                         elevation = CardDefaults.cardElevation(10.dp)) {
 
                         Column {
                             Spacer(modifier = Modifier.height(10.dp))
                             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.house),
-                                    contentDescription = "home",
+                                    painter = painterResource(id = R.drawable.register),
+                                    contentDescription = "register",
                                     modifier = Modifier.size(100.dp))
 
                             }
                             Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = "Property",
+                                text = "Register",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center)

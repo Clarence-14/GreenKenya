@@ -10,6 +10,7 @@ import com.example.greenkenya.ui.theme.screens.about.AboutScreen
 import com.example.greenkenya.ui.theme.screens.dashboard.DashboardScreen
 import com.example.greenkenya.ui.theme.screens.home.HomeScreen
 import com.example.greenkenya.ui.theme.screens.login.LoginScreen
+import com.example.greenkenya.ui.theme.screens.register.RegisterScreen
 import com.example.greenkenya.ui.theme.screens.signup.SignupScreen
 import com.example.greenkenya.ui.theme.screens.splash.SplashScreen
 
@@ -45,6 +46,9 @@ fun AppNavHost(
         }
         composable(ROUT_DASHBOARD) {
             DashboardScreen(navController = navController)
+        }
+        composable(ROUT_REGISTER) {
+            RegisterScreen(navController = navController)
         }
 
 
