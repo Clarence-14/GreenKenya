@@ -7,4 +7,6 @@ const val ROUT_SIGNUP="signup"
 const val ROUT_LOGIN="login"
 const val ROUT_DASHBOARD="dashboard"
 const val ROUT_REGISTER="register"
+const val ROUT_VIEW="view"
+const val ROUT_CONTACT="contact"
 
