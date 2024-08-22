@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
@@ -41,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.res.ColorStateListInflaterCompat
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenkenya.R
@@ -56,7 +58,7 @@ fun LoginScreen(navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .paint(painterResource(id = R.drawable.black), contentScale = ContentScale.FillBounds),
+            .paint(painterResource(id = R.drawable.greentriangle), contentScale = ContentScale.FillBounds),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
         Spacer(modifier = Modifier.height(100.dp))
@@ -111,12 +113,12 @@ fun LoginScreen(navController: NavController){
         OutlinedTextField(
             value = email,
             onValueChange = {email = it},
-            label = {Text(text = "Email Address")},
+            label = {Text(text = "Email Address", color = Color.White)},
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
             leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "", tint = Color.Green) },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
 
         )
 
@@ -125,7 +127,7 @@ fun LoginScreen(navController: NavController){
         OutlinedTextField(
             value = password,
             onValueChange = {password = it},
-            label = {Text(text = "Password")},
+            label = {Text(text = "Password", color = Color.White)},
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
