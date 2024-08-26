@@ -118,7 +118,7 @@ fun DashboardScreen(navController: NavController) {
                         }
 
                     }
-                    Spacer(modifier = Modifier.width(50.dp))
+                    Spacer(modifier = Modifier.width(30.dp))
                     //Card 2
                     Card(
                         modifier = Modifier
@@ -201,7 +201,7 @@ fun DashboardScreen(navController: NavController) {
                         }
 
                     }
-                    Spacer(modifier = Modifier.width(50.dp))
+                    Spacer(modifier = Modifier.width(30.dp))
                     //Card 4
                     Card(
                         modifier = Modifier
@@ -280,7 +280,7 @@ fun DashboardScreen(navController: NavController) {
                         }
 
                     }
-                    Spacer(modifier = Modifier.width(50.dp))
+                    Spacer(modifier = Modifier.width(30.dp))
                     //Card 6
                     Card(
                         modifier = Modifier
