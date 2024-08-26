@@ -32,7 +32,7 @@ class RegViewModel(var navController: NavController, var context: Context) {
     fun uploadRegistration(name:String, quantity:String, price:String, phone: String,filePath: Uri){
         val registrationId = System.currentTimeMillis().toString()
         val storageRef = FirebaseStorage.getInstance().getReference()
-            .child("Registration/$registrationId")
+            .child("Registrations/$registrationId")
         progress.show()
         storageRef.putFile(filePath).addOnCompleteListener{
             progress.dismiss()
@@ -42,7 +42,7 @@ class RegViewModel(var navController: NavController, var context: Context) {
                     var imageUrl = it.toString()
                     var registration = Registration(name,quantity,price,phone,imageUrl,registrationId )
                     var databaseRef = FirebaseDatabase.getInstance().getReference()
-                        .child("registration/$registrationId")
+                        .child("registrations/$registrationId")
                     databaseRef.setValue(registration).addOnCompleteListener {
                         if (it.isSuccessful){
                             Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
@@ -63,7 +63,7 @@ class RegViewModel(var navController: NavController, var context: Context) {
     ): SnapshotStateList<Registration> {
         progress.show()
         var ref = FirebaseDatabase.getInstance().getReference()
-            .child("Registration")
+            .child("Registrations")
         ref.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 registrations.clear()
@@ -90,7 +90,7 @@ class RegViewModel(var navController: NavController, var context: Context) {
     }
 
 
-    fun deleteProduct(registrationId:String){
+    fun deleteRegistration(registrationId:String){
         var ref = FirebaseDatabase.getInstance().getReference()
             .child("Registration/$registrationId")
         ref.removeValue()

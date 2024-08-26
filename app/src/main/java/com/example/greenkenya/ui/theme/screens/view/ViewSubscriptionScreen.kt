@@ -242,7 +242,7 @@ fun RegistrationItem(name:String, estate:String, location:String, phone:String, 
                             fontSize = 27.sp,
                             fontWeight = FontWeight.ExtraBold,
                             fontFamily = FontFamily.Default,
-                            color = Color.White
+                            color = Color.Black
                         )
 
 
@@ -250,7 +250,7 @@ fun RegistrationItem(name:String, estate:String, location:String, phone:String, 
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Medium,
                             fontFamily = FontFamily.Default,
-                            color = Color.White
+                            color = Color.Black
                         )
 
                         Spacer(modifier = Modifier.height(5.dp))
@@ -259,7 +259,7 @@ fun RegistrationItem(name:String, estate:String, location:String, phone:String, 
                             fontSize = 19.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Default,
-                            color = Color.White
+                            color = Color.Black
                         )
 
                         val mContext = LocalContext.current
@@ -302,7 +302,7 @@ fun RegistrationItem(name:String, estate:String, location:String, phone:String, 
 
                                 Spacer(modifier = Modifier.width(5.dp))
 
-                                IconButton(onClick = { registrationRepository.deleteProduct(id) }) {
+                                IconButton(onClick = { registrationRepository.deleteRegistration(id) }) {
                                     Icon(imageVector = Icons.Default.Delete, contentDescription = "", tint = Color.White)
                                 }
 
