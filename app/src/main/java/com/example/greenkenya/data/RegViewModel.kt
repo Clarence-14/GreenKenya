@@ -59,8 +59,7 @@ class RegViewModel(var navController: NavController, var context: Context) {
 
     fun allRegistrations(
         registration: MutableState<Registration>,
-        registrations: SnapshotStateList<Registration>
-    ): SnapshotStateList<Registration> {
+        registrations: SnapshotStateList<Registration>): SnapshotStateList<Registration> {
         progress.show()
         var ref = FirebaseDatabase.getInstance().getReference()
             .child("Registrations")
@@ -68,9 +67,9 @@ class RegViewModel(var navController: NavController, var context: Context) {
             override fun onDataChange(snapshot: DataSnapshot) {
                 registrations.clear()
                 for (snap in snapshot.children){
-                    var retrievedProduct = snap.getValue(Registration::class.java)
-                    registration.value = retrievedProduct!!
-                    registrations.add(retrievedProduct)
+                    var retrievedRegistration = snap.getValue(Registration::class.java)
+                    registration.value = retrievedRegistration!!
+                    registrations.add(retrievedRegistration)
                 }
                 progress.dismiss()
             }

@@ -169,6 +169,19 @@ fun LoginScreen(navController: NavController){
             Text(text = ("Login"))
 
         }
+        Spacer(modifier = Modifier.height(10.dp))
+        Button(
+            onClick = { authViewModel.adminlogin(email, password) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+                .padding(start = 20.dp, end = 20.dp),
+            colors = ButtonDefaults.buttonColors(Green),
+            shape = RoundedCornerShape(10.dp)
+        ) {
+            Text(text = "Sign In as Admin", fontFamily = FontFamily.SansSerif)
+        }
+
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
@@ -182,8 +195,6 @@ fun LoginScreen(navController: NavController){
             color = Color.White
 
         )
-
-
     }
 
 }

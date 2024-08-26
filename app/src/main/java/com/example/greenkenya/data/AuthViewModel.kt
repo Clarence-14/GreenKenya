@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.greenkenya.models.User
+import com.example.greenkenya.navigation.ROUT_ADMIN
 import com.example.greenkenya.navigation.ROUT_HOME
 import com.example.greenkenya.navigation.ROUT_LOGIN
 import com.example.greenkenya.navigation.ROUT_SIGNUP
@@ -72,6 +73,27 @@ class AuthViewModel(var navController: NavController, var context: Context){
                 }
             }
 
+        }
+    }
+    fun adminlogin(email: String, password: String){
+
+        if (email.isBlank() || password.isBlank()){
+            Toast.makeText(context,"Please email and password cannot be blank", Toast.LENGTH_LONG).show()
+        }
+
+        else if (email == "thisisclarence1@gmail.com" && password == "clarence"){
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                if (it.isSuccessful ){
+                    Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
+                    navController.navigate(ROUT_ADMIN)
+                }else{
+                    Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        }
+        else{
+            navController.navigate(ROUT_LOGIN)
         }
     }
 

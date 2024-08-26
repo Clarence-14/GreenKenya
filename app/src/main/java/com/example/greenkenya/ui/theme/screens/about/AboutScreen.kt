@@ -23,25 +23,6 @@ import com.example.greenkenya.ui.theme.screens.home.HomeScreen
 
 fun AboutScreen(navController: NavController){
 
-
-    Image(
-        painter = painterResource(id = R.drawable.recycleicon),
-        contentDescription ="home",
-        modifier = Modifier
-            .size(50.dp),
-        contentScale = ContentScale.Crop
-
-    )
-    Spacer(modifier = Modifier.height(5.dp))
-    Text(
-        text = "Tudumishe Mazingira Safi",
-        fontSize = 18.sp,
-        fontFamily = FontFamily.Serif,
-        color = Color.Black
-
-    )
-    Spacer(modifier = Modifier.height(20.dp))
-
 }
 
 
