@@ -14,6 +14,7 @@ import com.example.greenkenya.ui.theme.screens.home.HomeScreen
 import com.example.greenkenya.ui.theme.screens.login.LoginScreen
 import com.example.greenkenya.ui.theme.screens.register.RegisterScreen
 import com.example.greenkenya.ui.theme.screens.report.ReportScreen
+import com.example.greenkenya.ui.theme.screens.report.ViewReportScreen
 import com.example.greenkenya.ui.theme.screens.signup.SignupScreen
 import com.example.greenkenya.ui.theme.screens.splash.SplashScreen
 import com.example.greenkenya.ui.theme.screens.view.ViewSubscriptionScreen
@@ -66,6 +67,10 @@ fun AppNavHost(
         composable(ROUT_REPORT) {
             ReportScreen(navController = navController)
         }
+        composable(ROUT_VIEWREPORT) {
+            ViewReportScreen(navController = navController)
+        }
+
 
 
 

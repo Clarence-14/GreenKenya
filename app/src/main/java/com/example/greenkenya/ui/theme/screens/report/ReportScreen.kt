@@ -173,21 +173,11 @@ fun ReportScreen(navController: NavController) {
                     colors = ButtonDefaults.buttonColors(Color.Black)
                 ) {
                     Text(
-                        text = "Add Task",
+                        text = "Add Complaint",
                         fontSize = 16.sp
                     )
                 }
-                Button(
-                    onClick = { navController.navigate(ROUT_VIEWREPORT) },
-                    shape = RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp),
-                    colors = ButtonDefaults.buttonColors(Green),
-                ) {
-                    Text(
-                        text = "View Complaints & Reports",
-                        color = Color.Black,
-                        fontSize = 16.sp
-                    )
-                }
+
             }
 
             Spacer(modifier = Modifier.height(28.dp))
@@ -196,7 +186,7 @@ fun ReportScreen(navController: NavController) {
             OutlinedTextField(
                 value = taskName,
                 onValueChange = { taskName = it },
-                placeholder = { Text(text="eg. Missed Pickup") },
+                placeholder = { Text(text="eg. John Doe") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 15.dp),
@@ -207,7 +197,7 @@ fun ReportScreen(navController: NavController) {
                     )
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                label = { Text(text = "Complaint Type") }
+                label = { Text(text = "Enter Your Name") }
             )
 
             Spacer(modifier = Modifier.height(13.dp))

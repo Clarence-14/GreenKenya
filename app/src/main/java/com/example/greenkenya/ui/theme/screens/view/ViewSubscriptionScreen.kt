@@ -68,7 +68,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -194,8 +193,8 @@ fun ViewSubscriptionScreen(navController:NavController) {
 
 @Composable
 fun RegistrationItem(name:String, estate:String, location:String, phone:String, id:String,
-                navController: NavController,
-                registrationRepository: RegViewModel, registrationImage:String) {
+                     navController: NavController,
+                     registrationRepository: RegViewModel, registrationImage:String) {
 
     //1 item
     Column(modifier = Modifier

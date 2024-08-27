@@ -51,12 +51,10 @@ import com.example.greenkenya.R
 import com.example.greenkenya.data.TaskViewModel
 import com.example.greenkenya.models.Task
 import com.example.greenkenya.navigation.ROUT_ABOUT
+import com.example.greenkenya.navigation.ROUT_CONTACT
 import com.example.greenkenya.navigation.ROUT_HOME
 import com.example.greenkenya.navigation.ROUT_REPORT
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 
 
 @Composable
@@ -109,7 +107,7 @@ fun ViewReportScreen(navController: NavController) {
                         imageVector = Icons.Default.Info,
                         contentDescription = null,
                         modifier = Modifier.clickable {
-                            navController.navigate(ROUT_ABOUT)
+                            navController.navigate(ROUT_CONTACT)
                         }
                     )
                     Spacer(modifier = Modifier.width(4.dp))
@@ -117,7 +115,7 @@ fun ViewReportScreen(navController: NavController) {
                         text = "Help",
                         fontWeight = FontWeight.SemiBold,
                         modifier = Modifier.clickable {
-                            navController.navigate(ROUT_ABOUT)
+                            navController.navigate(ROUT_CONTACT)
                         }
                     )
                 }
@@ -167,20 +165,11 @@ fun ViewReportScreen(navController: NavController) {
                     colors = ButtonDefaults.buttonColors(Color.Black)
                 ) {
                     Text(
-                        text = "View Tasks",
+                        text = "View Complaints",
                         fontSize = 16.sp
                     )
                 }
-                Button(
-                    onClick = { navController.navigate(ROUT_REPORT) },
-                    shape = RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp),
-                    colors = ButtonDefaults.buttonColors(Color.Gray),
-                ) {
-                    Text(
-                        text = "Add Task",
-                        fontSize = 16.sp
-                    )
-                }
+
             }
 
             Spacer(modifier = Modifier.height(15.dp))
