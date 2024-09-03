@@ -7,6 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.greenkenya.ui.theme.screens.about.AboutScreen
+import com.example.greenkenya.ui.theme.screens.account.AddAccountScreen
+import com.example.greenkenya.ui.theme.screens.account.ViewAccountScreen
 import com.example.greenkenya.ui.theme.screens.admin.AdminScreen
 import com.example.greenkenya.ui.theme.screens.contacts.ContactScreen
 import com.example.greenkenya.ui.theme.screens.dashboard.DashboardScreen
@@ -69,6 +71,12 @@ fun AppNavHost(
         }
         composable(ROUT_VIEWREPORT) {
             ViewReportScreen(navController = navController)
+        }
+        composable(ADD_ACCOUNT) {
+            AddAccountScreen(navController = navController)
+        }
+        composable(VIEW_ACCOUNT) {
+            ViewAccountScreen(navController = navController)
         }
 
 

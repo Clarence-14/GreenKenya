@@ -56,6 +56,7 @@ import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenkenya.R
+import com.example.greenkenya.navigation.ADD_ACCOUNT
 import com.example.greenkenya.navigation.ROUT_ABOUT
 import com.example.greenkenya.navigation.ROUT_CONTACT
 import com.example.greenkenya.navigation.ROUT_HOME
@@ -63,6 +64,7 @@ import com.example.greenkenya.navigation.ROUT_LOGIN
 import com.example.greenkenya.navigation.ROUT_REGISTER
 import com.example.greenkenya.navigation.ROUT_REPORT
 import com.example.greenkenya.navigation.ROUT_VIEW
+import com.example.greenkenya.navigation.VIEW_ACCOUNT
 import com.example.greenkenya.ui.theme.Green
 import kotlinx.coroutines.launch
 
@@ -220,7 +222,7 @@ fun DashboardScreen(navController: NavController) {
                             modifier = Modifier
                                 .width(150.dp)
                                 .height(180.dp)
-                                .clickable { navController.navigate(ROUT_REGISTER) },
+                                .clickable { navController.navigate(ADD_ACCOUNT) },
                             colors = CardDefaults.cardColors(Green),
                             elevation = CardDefaults.cardElevation(10.dp)
                         ) {
@@ -299,7 +301,7 @@ fun DashboardScreen(navController: NavController) {
                             modifier = Modifier
                                 .width(150.dp)
                                 .height(180.dp)
-                                .clickable { navController.navigate(ROUT_VIEW) },
+                                .clickable { navController.navigate(VIEW_ACCOUNT) },
                             colors = CardDefaults.cardColors(Green),
                             elevation = CardDefaults.cardElevation(10.dp)
                         ) {
