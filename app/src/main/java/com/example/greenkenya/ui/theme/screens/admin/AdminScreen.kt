@@ -47,6 +47,7 @@ import com.example.greenkenya.navigation.ROUT_REGISTER
 import com.example.greenkenya.navigation.ROUT_REPORT
 import com.example.greenkenya.navigation.ROUT_VIEW
 import com.example.greenkenya.navigation.ROUT_VIEWREPORT
+import com.example.greenkenya.navigation.VIEW_ACCOUNT
 import com.example.greenkenya.ui.theme.Green
 
 
@@ -127,7 +128,7 @@ fun AdminScreen(navController: NavController) {
                         modifier = Modifier
                             .width(150.dp)
                             .height(180.dp)
-                            .clickable { navController.navigate(ROUT_VIEW) },
+                            .clickable { navController.navigate(VIEW_ACCOUNT) },
                         colors = CardDefaults.cardColors(Green),
                         elevation = CardDefaults.cardElevation(10.dp)
                     ) {
@@ -147,7 +148,7 @@ fun AdminScreen(navController: NavController) {
                             }
                             Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = "View Subscriptions",
+                                text = "View Registered Accounts",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center
