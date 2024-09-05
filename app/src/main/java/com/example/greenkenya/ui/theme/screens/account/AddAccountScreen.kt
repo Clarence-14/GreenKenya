@@ -167,7 +167,7 @@ fun AddAccountScreen(navController:NavHostController){
         //---------------------IMAGE PICKER START-----------------------------------//
 
         var modifier = Modifier
-        ImagePicker(modifier,context, navController, Name.trim(),location.trim(), estate.trim(),selectedDate)
+        ImagePicker(modifier,context, navController, Name.trim(),location.trim(), estate.trim(),selectedDate.toString().trim())
 
         //---------------------IMAGE PICKER END-----------------------------------//
 
@@ -235,7 +235,7 @@ fun ImagePicker(
             Button(onClick = {
                 //-----------WRITE THE UPLOAD LOGIC HERE---------------//
                 var accountRepository = AccountViewModel(navController,context)
-                accountRepository.addAccount(name, location, estate,imageUri!!)
+                accountRepository.addAccount(name, location, estate,selectedDate,imageUri!!)
 
 
             },

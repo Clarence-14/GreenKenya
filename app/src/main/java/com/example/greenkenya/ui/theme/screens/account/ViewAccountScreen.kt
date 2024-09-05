@@ -91,7 +91,7 @@ fun ViewAccountScreen(navController:NavHostController) {
         var accountRepository = AccountViewModel(navController, context)
 
 
-        val emptyAccountState = remember { mutableStateOf(Account("","","","","")) }
+        val emptyAccountState = remember { mutableStateOf(Account("","","","","","")) }
         var emptyAccountsListState = remember { mutableStateListOf<Account>() }
 
         var accounts = accountRepository.ViewAccount(emptyAccountState, emptyAccountsListState)
@@ -117,6 +117,7 @@ fun ViewAccountScreen(navController:NavHostController) {
                     location = it.location,
                     estate = it.estate,
                     id = it.id,
+                    selectedDate = it.date,
                     navController = navController,
                     accountRepository = accountRepository,
                     accountImage = it.imageUrl
@@ -134,7 +135,7 @@ fun ViewAccountScreen(navController:NavHostController) {
 
 
 @Composable
-fun AccountItem(name:String, location:String, estate:String, id:String,
+fun AccountItem(name:String, location:String, estate:String, id:String,selectedDate :String,
                 navController:NavHostController,
                 accountRepository:AccountViewModel, accountImage:String) {
 
@@ -178,6 +179,14 @@ fun AccountItem(name:String, location:String, estate:String, id:String,
         Spacer(modifier = Modifier.height(5.dp))
 
         Text(text = "Estate : $estate",
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.Default,
+            color = Color.Black
+        )
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Text(text = "Date : $selectedDate",
             fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.Default,

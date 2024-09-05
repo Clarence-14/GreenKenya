@@ -10,7 +10,6 @@ import androidx.navigation.NavController
 import com.example.greenkenya.models.Account
 import com.example.greenkenya.navigation.ADD_ACCOUNT
 import com.example.greenkenya.navigation.ROUT_LOGIN
-import com.example.greenkenya.navigation.VIEW_ACCOUNT
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -31,7 +30,13 @@ class AccountViewModel(var navController: NavController, var context: Context) {
         progress.setMessage("Please wait...")
     }
 
-    fun addAccount(name:String, location:String, estate:String, filePath: Uri){
+    fun addAccount(
+        name: String,
+        location: String,
+        estate: String,
+        selectedDate: String?,
+        filePath: Uri
+    ){
         val accountId = System.currentTimeMillis().toString()
         val storageRef = FirebaseStorage.getInstance().getReference()
             .child("Accounts/$accountId")
@@ -42,7 +47,9 @@ class AccountViewModel(var navController: NavController, var context: Context) {
                 // Save data to db
                 storageRef.downloadUrl.addOnSuccessListener {
                     var imageUrl = it.toString()
-                    var account = Account(name,location,estate,imageUrl,accountId)
+                    var account = Account(name,location,estate,imageUrl,accountId,
+                        selectedDate.toString()
+                    )
                     var databaseRef = FirebaseDatabase.getInstance().getReference()
                         .child("Accounts/$accountId")
                     databaseRef.setValue(account).addOnCompleteListener {
