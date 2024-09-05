@@ -14,5 +14,6 @@ const val ROUT_REPORT="report"
 const val ROUT_VIEWREPORT="viewreport"
 const val ADD_ACCOUNT="addaccount"
 const val VIEW_ACCOUNT="viewaccount"
+const val ROUT_MAP="map"
 
 

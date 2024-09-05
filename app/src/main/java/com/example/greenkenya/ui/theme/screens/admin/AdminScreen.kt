@@ -140,8 +140,8 @@ fun AdminScreen(navController: NavController) {
                                 contentAlignment = Alignment.Center
                             ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.creditcard),
-                                    contentDescription = "subscriptions",
+                                    painter = painterResource(id = R.drawable.account),
+                                    contentDescription = "accounts",
                                     modifier = Modifier.size(100.dp)
                                 )
 

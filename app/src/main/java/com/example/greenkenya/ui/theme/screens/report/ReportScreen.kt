@@ -90,7 +90,7 @@ fun ReportScreen(navController: NavController) {
                     imageVector = Icons.Default.Home,
                     contentDescription = null,
                     modifier = Modifier.clickable { navController.navigate(ROUT_HOME) },
-                    tint = Color.Black
+                    tint = Green
                 )
                 Spacer(modifier = Modifier.width(5.dp))
                 Text(
@@ -111,7 +111,7 @@ fun ReportScreen(navController: NavController) {
                         modifier = Modifier.clickable {
                             navController.navigate(ROUT_CONTACT)
                         },
-                        tint = Color.Black
+                        tint = Green
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
@@ -136,7 +136,7 @@ fun ReportScreen(navController: NavController) {
                         .size(70.dp),
                     shape = RoundedCornerShape(50),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color.Gray
+                        containerColor = Color.White
                     )
                 ){
                     Image(
@@ -170,7 +170,7 @@ fun ReportScreen(navController: NavController) {
                 Button(
                     onClick = { /*TODO*/ },
                     shape = RoundedCornerShape(topStart = 10.dp, bottomStart = 10.dp),
-                    colors = ButtonDefaults.buttonColors(Color.Black)
+                    colors = ButtonDefaults.buttonColors(Green)
                 ) {
                     Text(
                         text = "Add Complaint",
@@ -193,7 +193,7 @@ fun ReportScreen(navController: NavController) {
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Warning,
-                        contentDescription = "email icon"
+                        contentDescription = "icon"
                     )
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),

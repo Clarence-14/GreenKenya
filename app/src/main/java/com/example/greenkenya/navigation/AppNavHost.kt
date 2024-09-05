@@ -14,6 +14,7 @@ import com.example.greenkenya.ui.theme.screens.contacts.ContactScreen
 import com.example.greenkenya.ui.theme.screens.dashboard.DashboardScreen
 import com.example.greenkenya.ui.theme.screens.home.HomeScreen
 import com.example.greenkenya.ui.theme.screens.login.LoginScreen
+import com.example.greenkenya.ui.theme.screens.map.MapScreen
 import com.example.greenkenya.ui.theme.screens.register.RegisterScreen
 import com.example.greenkenya.ui.theme.screens.report.ReportScreen
 import com.example.greenkenya.ui.theme.screens.report.ViewReportScreen
@@ -77,6 +78,9 @@ fun AppNavHost(
         }
         composable(VIEW_ACCOUNT) {
             ViewAccountScreen(navController = navController)
+        }
+        composable(ROUT_MAP) {
+            MapScreen(navController = navController)
         }
 
 

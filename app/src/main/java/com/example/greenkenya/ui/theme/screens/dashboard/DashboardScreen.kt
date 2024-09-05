@@ -61,6 +61,7 @@ import com.example.greenkenya.navigation.ROUT_ABOUT
 import com.example.greenkenya.navigation.ROUT_CONTACT
 import com.example.greenkenya.navigation.ROUT_HOME
 import com.example.greenkenya.navigation.ROUT_LOGIN
+import com.example.greenkenya.navigation.ROUT_MAP
 import com.example.greenkenya.navigation.ROUT_REGISTER
 import com.example.greenkenya.navigation.ROUT_REPORT
 import com.example.greenkenya.navigation.ROUT_VIEW
@@ -114,7 +115,7 @@ fun DashboardScreen(navController: NavController) {
                             modifier = Modifier
                                 .width(150.dp)
                                 .height(180.dp)
-                                .clickable { navController.navigate(ROUT_ABOUT) },
+                                .clickable { navController.navigate(ROUT_HOME) },
                             colors = CardDefaults.cardColors(Green),
                             elevation = CardDefaults.cardElevation(10.dp)
                         ) {
@@ -126,15 +127,15 @@ fun DashboardScreen(navController: NavController) {
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Image(
-                                        painter = painterResource(id = R.drawable.calendar),
-                                        contentDescription = "date",
+                                        painter = painterResource(id = R.drawable.home),
+                                        contentDescription = "home",
                                         modifier = Modifier.size(100.dp)
                                     )
 
                                 }
                                 Spacer(modifier = Modifier.height(15.dp))
                                 Text(
-                                    text = "Schedule a Pickup",
+                                    text = "Home",
                                     fontSize = 18.sp,
                                     modifier = Modifier.fillMaxWidth(),
                                     textAlign = TextAlign.Center
@@ -301,7 +302,7 @@ fun DashboardScreen(navController: NavController) {
                             modifier = Modifier
                                 .width(150.dp)
                                 .height(180.dp)
-                                .clickable { navController.navigate(VIEW_ACCOUNT) },
+                                .clickable { navController.navigate(ROUT_MAP) },
                             colors = CardDefaults.cardColors(Green),
                             elevation = CardDefaults.cardElevation(10.dp)
                         ) {
@@ -313,7 +314,7 @@ fun DashboardScreen(navController: NavController) {
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Image(
-                                        painter = painterResource(id = R.drawable.creditcard),
+                                        painter = painterResource(id = R.drawable.map),
                                         contentDescription = "invoice",
                                         modifier = Modifier.size(100.dp)
                                     )
@@ -321,7 +322,7 @@ fun DashboardScreen(navController: NavController) {
                                 }
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Text(
-                                    text = "View Subscription",
+                                    text = "Our Location",
                                     fontSize = 18.sp,
                                     modifier = Modifier.fillMaxWidth(),
                                     textAlign = TextAlign.Center

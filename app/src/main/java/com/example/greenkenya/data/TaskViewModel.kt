@@ -41,7 +41,7 @@ class TaskViewModel(var navController: NavController, var context: Context) {
         databaseRef.setValue(task).addOnCompleteListener {
             progress.dismiss()
             if (it.isSuccessful){
-                navController.navigate(ROUT_VIEWREPORT)
+
                 Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()

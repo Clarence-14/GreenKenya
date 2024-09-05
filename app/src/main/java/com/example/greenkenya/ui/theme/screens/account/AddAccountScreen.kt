@@ -1,6 +1,7 @@
 package com.example.greenkenya.ui.theme.screens.account
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
@@ -9,12 +10,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -47,6 +50,8 @@ import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenkenya.data.AccountViewModel
+import com.example.greenkenya.ui.theme.Green
+import java.util.Calendar
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -63,7 +68,7 @@ fun AddAccountScreen(navController:NavHostController){
         Spacer(modifier = Modifier.height(50.dp))
 
         Text(
-            text = "Create An Account here!",
+            text = "Kindly Fill The Registration Form Below.",
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.SansSerif)
@@ -77,19 +82,21 @@ fun AddAccountScreen(navController:NavHostController){
         var location by remember { mutableStateOf("") }
         var estate by remember { mutableStateOf("") }
         val context = LocalContext.current
+        var selectedDate by remember { mutableStateOf<String?>(null) }
+        var showDatePicker by remember { mutableStateOf(false) }
 
 
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedTextField(
             value = Name,
             onValueChange = { Name = it },
-            label = { Text(text = "Account Full name  ") },
+            label = { Text(text = " Full name  ") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
 
         OutlinedTextField(
@@ -101,7 +108,7 @@ fun AddAccountScreen(navController:NavHostController){
 
         //End of Textfield with dropdown
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedTextField(
             value = estate,
@@ -112,8 +119,51 @@ fun AddAccountScreen(navController:NavHostController){
 
         Spacer(modifier = Modifier.height(20.dp))
 
+      Row(modifier = Modifier.padding(start = 20.dp, end = 20.dp)) {
+          Button(onClick = {
+          val calendar = Calendar.getInstance()
+          val year = calendar.get(Calendar.YEAR)
+          val month = calendar.get(Calendar.MONTH)
+          val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+          DatePickerDialog(
+              //Don't forget to create the context variable located just below
+              //the aboutscreen function
+              context,
+              { _, selectedYear, selectedMonth, selectedDay ->
+                  selectedDate = "${selectedDay}/${selectedMonth + 1}/${selectedYear}"
+              },
+              year,
+              month,
+              day
+          ).show()
+      },
+          shape = RoundedCornerShape(10.dp),
+          colors = ButtonDefaults.buttonColors(Green),
+          modifier = Modifier
+              .height(65.dp)
+              .padding(top = 10.dp)) {
+          Text(text = "Start Date")
+      }
+          Spacer(modifier = Modifier.width(20.dp))
+
+          OutlinedTextField(
+              value = selectedDate ?: "",
+              onValueChange = { /* No-op, as we handle value through date picker */ },
+              label = { Text("Choose Collection Date") },
+              readOnly = true,  // Makes the text field non-editable
+              modifier = Modifier
+                  .padding(bottom = 16.dp)
+                  .width(250.dp),
+              trailingIcon = {
+                  Text(text = "📅")  // Icon to indicate date picker
+              },
+              singleLine = true
+          )
+      }
 
         Spacer(modifier = Modifier.height(20.dp))
+
 
 
 
@@ -169,7 +219,7 @@ fun ImagePicker(modifier: Modifier = Modifier, context: Context,navController: N
                     imagePicker.launch("image/*")
                 },
                 shape = RoundedCornerShape(5.dp),
-                colors = ButtonDefaults.buttonColors(Color.Gray)
+                colors = ButtonDefaults.buttonColors(Green)
             ) {
                 Text(
                     text = "Upload Photo"
@@ -186,7 +236,7 @@ fun ImagePicker(modifier: Modifier = Modifier, context: Context,navController: N
 
             },
                 shape = RoundedCornerShape(5.dp),
-                colors = ButtonDefaults.buttonColors(Color.Gray)) {
+                colors = ButtonDefaults.buttonColors(Green)) {
                 Text(text = "Add Account")
             }
         }

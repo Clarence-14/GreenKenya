@@ -47,7 +47,7 @@ class AccountViewModel(var navController: NavController, var context: Context) {
                         .child("Accounts/$accountId")
                     databaseRef.setValue(account).addOnCompleteListener {
                         if (it.isSuccessful){
-                            navController.navigate(VIEW_ACCOUNT)
+
                             Toast.makeText(this.context, "Successfully created an account", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()
