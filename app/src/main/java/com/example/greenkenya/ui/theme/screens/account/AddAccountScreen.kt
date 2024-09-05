@@ -34,11 +34,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -46,7 +43,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenkenya.data.AccountViewModel
@@ -171,7 +167,7 @@ fun AddAccountScreen(navController:NavHostController){
         //---------------------IMAGE PICKER START-----------------------------------//
 
         var modifier = Modifier
-        ImagePicker(modifier,context, navController, Name.trim(),location.trim(), estate.trim())
+        ImagePicker(modifier,context, navController, Name.trim(),location.trim(), estate.trim(),selectedDate)
 
         //---------------------IMAGE PICKER END-----------------------------------//
 
@@ -185,7 +181,15 @@ fun AddAccountScreen(navController:NavHostController){
 
 
 @Composable
-fun ImagePicker(modifier: Modifier = Modifier, context: Context,navController: NavHostController, name:String, location:String, estate:String) {
+fun ImagePicker(
+    modifier: Modifier = Modifier,
+    context: Context,
+    navController: NavHostController,
+    name: String,
+    location: String,
+    estate: String,
+    selectedDate: String?
+) {
     var hasImage by remember { mutableStateOf(false) }
     var imageUri by remember { mutableStateOf<Uri?>(null) }
 
